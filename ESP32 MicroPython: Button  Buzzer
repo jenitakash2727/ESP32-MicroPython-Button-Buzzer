@@ -1,0 +1,16 @@
+from machine import Pin
+import time
+
+
+button = Pin(14, Pin.IN, Pin.PULL_UP)
+
+
+buzzer = Pin(27, Pin.OUT)
+
+while True:
+    if button.value() == 0:   # button pressed (LOW)
+        buzzer.value(1)       # buzzer ON
+    else:
+        buzzer.value(0)       # buzzer OFF
+
+    time.sleep(0.05)
